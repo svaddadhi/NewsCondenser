@@ -1,15 +1,15 @@
-// /utils/summarize.js
-const { Configuration, OpenAIApi } = require("openai");
+// Requiring the OpenAI package
+const OpenAI = require('openai');
 
-const configuration = new Configuration({
+// Creating a new instance of the OpenAI client with your API key
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 async function summarizeText(text) {
   try {
     const response = await openai.createCompletion({
-      model: "text-davinci-003", // Make sure to use the latest model
+      model: "text-davinci-003", // Ensure this model is current or adjust as needed
       prompt: `Summarize this article:\n\n${text}`,
       temperature: 0.7,
       max_tokens: 150,
@@ -20,7 +20,8 @@ async function summarizeText(text) {
     return response.data.choices[0].text.trim();
   } catch (error) {
     console.error("Error in text summarization:", error);
-    return "Summarization error.";
+    // It might be better to throw the error or handle it so that the caller can decide what to do
+    throw error;
   }
 }
 
