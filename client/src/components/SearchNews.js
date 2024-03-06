@@ -4,7 +4,7 @@ import ArticleCard from "./ArticleCard";
 import SummarizeModal from "./SummarizeModal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "./SearchNews.css";
+import "../styles/SearchNews.css";
 
 const SearchNews = () => {
   const [query, setQuery] = useState("");
