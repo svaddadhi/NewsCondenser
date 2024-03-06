@@ -5,7 +5,7 @@ import SummarizeModal from "./SummarizeModal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { fetchArticles, summarizeArticle } from "../api/api";
-import "../styles/SearchNews.css"; // Make sure the path is correct
+import "../styles/SearchNews.css";
 
 const SearchNews = () => {
   const [query, setQuery] = useState("");
@@ -47,7 +47,7 @@ const SearchNews = () => {
           placeholder="Enter news topic"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="me-2 form-control-width" // Added the new class here
+          className="me-2 form-control-width"
         />
         <Button variant="primary" onClick={handleFetchArticles}>
           Search

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "/api"; // Assuming your API endpoints have a common base URL
+const baseUrl = "/api";
 
 export const fetchArticles = async (query) => {
   try {
@@ -8,7 +8,7 @@ export const fetchArticles = async (query) => {
     return response.data; // Returns articles data
   } catch (error) {
     console.error("Error fetching articles:", error);
-    throw error; // Rethrowing error to handle it in the component
+    throw error;
   }
 };
 
@@ -18,6 +18,6 @@ export const summarizeArticle = async (content) => {
     return response.data.summary; // Returns summary data
   } catch (error) {
     console.error("Error summarizing article:", error);
-    throw error; // Rethrowing error to handle it in the component
+    throw error;
   }
 };
