@@ -23,6 +23,7 @@ router.get('/news', async (req, res) => {
 
 router.post('/summarize', async (req, res) => {
   const { content } = req.body;
+  console.log('Received content for summarization:', req.body.content); // Debug log
   try {
     const summary = await summarizeText(content);
     res.json({ summary });
