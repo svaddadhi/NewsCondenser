@@ -1,16 +1,13 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import "../styles/ArticleCard.css";
 
 const ArticleCard = ({ article, onSummarize }) => {
   return (
-    <Card
-      style={{ width: "18rem", margin: "1rem" }}
-      className="d-flex flex-column"
-    >
+    <Card className="article-card">
       <Card.Body className="d-flex flex-column">
-        <Card.Title style={{ fontWeight: "bold" }}>{article.title}</Card.Title>
-        {/* Displaying the formatted date */}
+        <Card.Title className="article-title">{article.title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
           {article.formattedDate}
         </Card.Subtitle>

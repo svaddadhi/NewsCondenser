@@ -5,7 +5,6 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_DEFAULTS = {
   model: "gpt-3.5-turbo-instruct",
   max_tokens: 150,
-  // You can add more default properties here or adjust as needed
 };
 
 // Function to create prompt with dynamic text

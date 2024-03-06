@@ -13,7 +13,7 @@ async function summarizeText(text) {
   try {
     const completion = await openai.completions.create({
       ...OPENAI_DEFAULTS,
-      prompt: createOpenAiPrompt,
+      prompt: createOpenAiPrompt(text),
     });
     console.log("OpenAI response:", completion.choices[0].text.trim());
     return completion.choices[0].text.trim();

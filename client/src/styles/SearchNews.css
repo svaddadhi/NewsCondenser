@@ -5,4 +5,7 @@
     justify-content: center; /* Center cards horizontally */
     gap: 20px; /* Add spacing between cards */
   }
-  
+
+.form-control-width {
+  width: 300px; /* Adjust the width as necessary */
+  }

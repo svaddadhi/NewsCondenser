@@ -4,7 +4,8 @@ import ArticleCard from "./ArticleCard";
 import SummarizeModal from "./SummarizeModal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../styles/SearchNews.css";
+import { fetchArticles, summarizeArticle } from "../api/api";
+import "../styles/SearchNews.css"; // Make sure the path is correct
 
 const SearchNews = () => {
   const [query, setQuery] = useState("");
@@ -13,10 +14,10 @@ const SearchNews = () => {
   const [isSummarizing, setIsSummarizing] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const fetchArticles = async () => {
+  const handleFetchArticles = async () => {
     try {
-      const response = await axios.get(`/api/news?query=${query}`);
-      setArticles(response.data);
+      const data = await fetchArticles(query);
+      setArticles(data);
       setSummary("");
       setShowModal(false);
     } catch (error) {
@@ -27,8 +28,8 @@ const SearchNews = () => {
   const onSummarize = async (content) => {
     setIsSummarizing(true);
     try {
-      const response = await axios.post("/api/summarize", { content });
-      setSummary(response.data.summary);
+      const summary = await summarizeArticle(content);
+      setSummary(summary);
       setIsSummarizing(false);
       setShowModal(true);
     } catch (error) {
@@ -46,10 +47,9 @@ const SearchNews = () => {
           placeholder="Enter news topic"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="me-2"
-          style={{ width: "300px" }} // Adjust the width as necessary
+          className="me-2 form-control-width" // Added the new class here
         />
-        <Button variant="primary" onClick={fetchArticles}>
+        <Button variant="primary" onClick={handleFetchArticles}>
           Search
         </Button>
       </Form>

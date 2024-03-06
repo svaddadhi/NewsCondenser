@@ -1,0 +1,12 @@
+/* Additions to the existing CSS file */
+
+.article-card {
+    width: 18rem;
+    margin: 1rem;
+    display: flex; /* Assuming you want to keep the d-flex property */
+    flex-direction: column; /* Assuming you want to keep the flex-column property */
+}
+
+.article-title {
+    font-weight: bold;
+}
