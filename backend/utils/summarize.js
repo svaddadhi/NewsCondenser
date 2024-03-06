@@ -15,9 +15,7 @@ async function summarizeText(text) {
       ...OPENAI_DEFAULTS,
       prompt: createOpenAiPrompt,
     });
-    if (process.env.NODE_ENV !== "production") {
-      console.log("OpenAI response:", completion.choices[0].text.trim());
-    }
+    console.log("OpenAI response:", completion.choices[0].text.trim());
     return completion.choices[0].text.trim();
   } catch (error) {
     console.error("Error in text summarization:", error);
