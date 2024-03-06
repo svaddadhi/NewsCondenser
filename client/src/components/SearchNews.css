@@ -1,0 +1,8 @@
+/* SearchNews.css */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center cards horizontally */
+    gap: 20px; /* Add spacing between cards */
+  }
+  
