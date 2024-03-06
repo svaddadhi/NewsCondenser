@@ -50,6 +50,26 @@ This project utilizes the `concurrently` package to run both the frontend and ba
 - **Reading Summaries**: Each news article is presented in a card format with a "Summarize" button. Clicking this button will fetch a concise summary of the article, displayed in a modal overlay.
 - **Navigating Articles**: The application does not currently implement pagination. All articles fetched based on the search query will be displayed in a single view. For performance reasons, consider implementing pagination if scaling the application.
 
+## Customizing OpenAI Integration
+
+The application is configured with a set of defaults for interacting with OpenAI's API, which are defined in a constants file. These defaults help standardize the requests sent to OpenAI and can be adjusted according to the needs of your application or the specific behavior you wish to achieve from the model.
+
+Here's an overview of the `OPENAI_DEFAULTS` object and how it can be adjusted:
+
+```javascript
+const OPENAI_DEFAULTS = {
+  model: "gpt-3.5-turbo-instruct", // The model used for generating summaries.
+  max_tokens: 150, // The maximum number of tokens to generate.
+  // You can add more default properties here or adjust as needed based on OpenAI's documentation.
+};
+```
+
+- **Additional Parameters**: Refer to OpenAI's API documentation to find other parameters you can control, such as temperature, top_p, frequency_penalty, and more. Add these to the OPENAI_DEFAULTS object as needed.
+
+## Handling OpenAI API Errors
+
+- **Error 429 (Too Many Requests)**: If you encounter a 429 error when attempting to summarize an article, this typically means you have exceeded the API rate limits. OpenAI allows for a certain number of free API calls; beyond that, you must fund your account to continue using the service. Ensure that you have sufficient credits in your OpenAI account to avoid disruption of service.
+
 ## Project Structure
 
 - **Frontend (`/client`)**: Contains the React application setup, including components for displaying the search interface, article cards, and summary modal.
